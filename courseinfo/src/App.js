@@ -14,12 +14,12 @@ const Part = (props) => {
   );
 };
 
-const Content = () => {
+const Content = (props) => {
   return (
     <div>
-      <Part part={part} exercises={exercises} />
-      <Part part={part} exercises={exercises} />
-      <Part part={part} exercises={exercises} />
+      <Part part1={props.part} exercises1={props.exercises} />
+      <Part part2={props.part} exercises2={props.exercises} />
+      <Part part3={props.part} exercises3={props.exercises} />
     </div>
   );
 };
