@@ -15,11 +15,14 @@ const Part = (props) => {
 };
 
 const Content = (props) => {
+  console.log(props.part1);
+  console.log(props.part2);
+  console.log(props.part3);
   return (
     <div>
-      <Part part1={props.part} exercises1={props.exercises} />
-      <Part part2={props.part} exercises2={props.exercises} />
-      <Part part3={props.part} exercises3={props.exercises} />
+      <Part part={props.part1} exercises1={props.exercises1} />
+      <Part part={props.part2} exercises2={props.exercises2} />
+      <Part part={props.part3} exercises3={props.exercises3} />
     </div>
   );
 };
