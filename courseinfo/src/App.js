@@ -5,19 +5,16 @@ const Header = (props) => {
 };
 
 const Part = (props) => {
-  const m1 = props.parts;
-  console.log(m1);
-  return (
-    <>
-      <p>
-        {props.name} {props.exercises}
-      </p>
-    </>
-  );
+  const arrayPart = props.parts;
+  const part = (array) => {
+    array.forEach((el) =>
+      console.log('<p>' + el.name + ' ' + el.exercises + '</p>')
+    );
+  };
+  return <>{part(arrayPart)}</>;
 };
 
 const Content = (props) => {
-  // console.log(props);
   return (
     <div>
       <Part parts={props.parts} />
