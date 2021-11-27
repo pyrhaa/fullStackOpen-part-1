@@ -5,13 +5,11 @@ const Header = (props) => {
 };
 
 const Part = (props) => {
+  console.log(props);
   const arrayPart = props.parts;
-  const part = (array) => {
-    array.forEach((el) =>
-      console.log('<p>' + el.name + ' ' + el.exercises + '</p>')
-    );
-  };
-  return <>{part(arrayPart)}</>;
+  const part = arrayPart.map((el) => el.name + ' ' + el.exercises);
+  console.log(part);
+  return <>{part}</>;
 };
 
 const Content = (props) => {
