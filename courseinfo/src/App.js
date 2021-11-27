@@ -6,32 +6,28 @@ const Header = (props) => {
 
 const Part = (props) => {
   const arrayPart = props.parts;
-  const exercices = arrayPart.map((el) => el.exercises);
-  const parts = arrayPart.map((el) => el.name);
-  return (
-    <>
-      <p>
-        {parts} {exercices}
-      </p>
-    </>
-  );
+  // const exercices = arrayPart.map((el) => el.exercises);
+  const parts = arrayPart.map((el) => <li>{el.name + ' ' + el.exercises}</li>);
+  console.log(parts);
+  return <>{parts}</>;
 };
 
 const Content = (props) => {
   return (
     <div>
-      <Part parts={props.parts} />
+      <p>
+        <Part parts={props.parts} />
+      </p>
     </div>
   );
 };
 
 const Total = (props) => {
-  return (
-    <p>
-      Number of exercises{' '}
-      {props.exercises1 + props.exercises2 + props.exercises3}
-    </p>
-  );
+  const exercices = props.parts.map((el) => el.exercises);
+  const [first, second, third] = exercices;
+  const sum = first + second + third;
+  console.log(sum);
+  return <p>Number of exercises {sum}</p>;
 };
 
 const App = () => {
