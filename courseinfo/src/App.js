@@ -5,11 +5,16 @@ const Header = (props) => {
 };
 
 const Part = (props) => {
-  console.log(props);
   const arrayPart = props.parts;
-  const part = arrayPart.map((el) => el.name + ' ' + el.exercises);
-  console.log(part);
-  return <>{part}</>;
+  const exercices = arrayPart.map((el) => el.exercises);
+  const parts = arrayPart.map((el) => el.name);
+  return (
+    <>
+      <p>
+        {parts} {exercices}
+      </p>
+    </>
+  );
 };
 
 const Content = (props) => {
