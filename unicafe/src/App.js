@@ -13,6 +13,7 @@ const Title = () => {
   return <h2>statistics</h2>;
 };
 
+//statistic table format
 const StatisticLine = (props) => {
   return (
     <tr>
@@ -28,7 +29,8 @@ const Statistics = (props) => {
   const neutral = props.neutral;
   const bad = props.bad;
   const all = good + neutral + bad;
-  const average = all / 3;
+  const score = good * 1 + neutral * 0 + bad * -1;
+  const average = score / all;
   const positive = (good / all) * 100 + ' %';
 
   if (all === 0) {
