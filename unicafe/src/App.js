@@ -4,8 +4,22 @@ const Header = () => {
   return <h1>give feedback</h1>;
 };
 
+//button with event handler click and text
+const Button = (props) => {
+  return <button onClick={props.handleClick}>{props.text}</button>;
+};
+
 const Title = () => {
   return <h2>statistics</h2>;
+};
+
+const StatisticLine = (props) => {
+  return (
+    <tr>
+      <td>{props.text}</td>
+      <td>{props.value}</td>
+    </tr>
+  );
 };
 
 //component display statistics
@@ -15,27 +29,26 @@ const Statistics = (props) => {
   const bad = props.bad;
   const all = good + neutral + bad;
   const average = all / 3;
-  const positive = (good / all) * 100;
+  const positive = (good / all) * 100 + ' %';
 
   if (all === 0) {
     return <p>No feedback given</p>;
   } else {
     return (
       <>
-        <p>good {good}</p>
-        <p>neutral {neutral}</p>
-        <p>bad {bad}</p>
-        <p>all {all}</p>
-        <p>average {average}</p>
-        <p>positive {positive}%</p>
+        <table>
+          <tbody>
+            <StatisticLine text="good" value={good} />
+            <StatisticLine text="neutral" value={neutral} />
+            <StatisticLine text="bad" value={bad} />
+            <StatisticLine text="all" value={all} />
+            <StatisticLine text="average" value={average} />
+            <StatisticLine text="positive" value={positive} />
+          </tbody>
+        </table>
       </>
     );
   }
-};
-
-//button with event handler click and text
-const Button = (props) => {
-  return <button onClick={props.handleClick}>{props.text}</button>;
 };
 
 const App = () => {
