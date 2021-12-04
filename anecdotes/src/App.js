@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const Anecdote = (props) => {
-  console.log(props.anecdotes[props.selected]);
   return <p>{props.anecdotes[props.selected]}</p>;
 };
 
@@ -25,7 +24,11 @@ const App = () => {
   return (
     <div>
       <Anecdote anecdotes={anecdotes} selected={selected} />
-      <Button />
+      <Button
+        handleClick={() =>
+          setSelected(Math.floor(Math.random() * anecdotes.length))
+        }
+      />
     </div>
   );
 };
