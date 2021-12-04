@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const Anecdote = (props) => {
-  console.log(props);
-  return <p>hey</p>;
+  console.log(props.anecdotes);
+  return <p>{props.anecdotes[0]}</p>;
 };
 
 const Button = (props) => {
@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div>
-      <Anecdote />
+      <Anecdote anecdotes={anecdotes} />
       <Button />
     </div>
   );
