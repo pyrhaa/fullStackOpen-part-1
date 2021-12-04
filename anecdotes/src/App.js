@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 
+const Title = (props) => {
+  return <h2>{props.text}</h2>;
+};
+
 const Anecdote = (props) => {
   return <p>{props.anecdotes[props.selected]}</p>;
 };
 
 const Button = (props) => {
-  return <button onClick={props.handleClick}>Random anecdotes</button>;
+  return <button onClick={props.handleClick}>{props.text}</button>;
 };
 
 const App = () => {
@@ -23,12 +27,16 @@ const App = () => {
 
   return (
     <div>
+      <Title text="Anecdote of the day \(^o^)/" />
       <Anecdote anecdotes={anecdotes} selected={selected} />
+      <Button text="vote !" />
       <Button
+        text="Random anecdotes"
         handleClick={() =>
           setSelected(Math.floor(Math.random() * anecdotes.length))
         }
       />
+      <Title text="Most popular Anecdote from votes" />
     </div>
   );
 };
