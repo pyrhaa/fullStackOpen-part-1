@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const Anecdote = (props) => {
-  console.log(props.anecdotes);
-  return <p>{props.anecdotes[0]}</p>;
+  console.log(props.anecdotes[props.selected]);
+  return <p>{props.anecdotes[props.selected]}</p>;
 };
 
 const Button = (props) => {
@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div>
-      <Anecdote anecdotes={anecdotes} />
+      <Anecdote anecdotes={anecdotes} selected={selected} />
       <Button />
     </div>
   );
