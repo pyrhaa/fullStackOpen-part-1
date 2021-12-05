@@ -6,7 +6,6 @@ const Title = (props) => {
 };
 
 const Anecdote = (props) => {
-  console.log(props);
   return <p>{props.anecdotes[props.selected]}</p>;
 };
 
@@ -25,14 +24,14 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ];
   const votes = [...anecdotes].fill(0);
-  console.log(votes);
   const [selected, setSelected] = useState(0);
 
+  console.log(votes);
   return (
     <div>
-      <Title text="Anecdote of the day \(^o^)/" />
+      <Title text="Anecdote of the day *~(^o^)~*" />
       <Anecdote anecdotes={anecdotes} selected={selected} />
-      <Button text="vote !" />
+      <Button text="vote !" handleClick={() => (votes[selected] += 1)} />
       <Button
         text="Random anecdotes"
         handleClick={() =>
