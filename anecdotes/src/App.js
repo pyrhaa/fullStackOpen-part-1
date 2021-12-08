@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 
-//pour faire step 2 voir array method fill
 const Title = (props) => {
   return <h2>{props.text}</h2>;
 };
 
 const Anecdote = (props) => {
-  return <p>{props.anecdotes[props.selected]}</p>;
+  console.log(props);
+  return (
+    <>
+      <p>{props.anecdotes[props.selected]}</p>
+      <p>has {props.votes[props.selected]} votes</p>
+    </>
+  );
 };
 
 const Button = (props) => {
@@ -30,7 +35,7 @@ const App = () => {
   return (
     <div>
       <Title text="Anecdote of the day *~(^o^)~*" />
-      <Anecdote anecdotes={anecdotes} selected={selected} />
+      <Anecdote anecdotes={anecdotes} selected={selected} votes={votes} />
       <Button text="vote !" handleClick={() => (votes[selected] += 1)} />
       <Button
         text="Random anecdotes"
