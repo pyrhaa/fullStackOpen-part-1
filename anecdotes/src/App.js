@@ -5,7 +5,7 @@ const Title = (props) => {
 };
 
 const Anecdote = (props) => {
-  console.log(props);
+  console.log(props.votes[props.selected]);
   return (
     <>
       <p>{props.anecdotes[props.selected]}</p>
@@ -28,15 +28,29 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ];
-  const votes = [...anecdotes].fill(0);
+  // const votes = [...anecdotes].fill(0);
   const [selected, setSelected] = useState(0);
+  const [votes, setVotes] = useState([...anecdotes].fill(0));
+
+  const incrementValueArray = () => {
+    const valArray = votes.values();
+    const keyArray = votes.keys();
+
+    for (const value of valArray) {
+      for(const key of keyArray) {
+        if(value.indexOf)
+      }
+    }
+  }
 
   console.log(votes);
+  console.log(selected);
+
   return (
     <div>
       <Title text="Anecdote of the day *~(^o^)~*" />
       <Anecdote anecdotes={anecdotes} selected={selected} votes={votes} />
-      <Button text="vote !" handleClick={() => (votes[selected] += 1)} />
+      <Button text="vote !" handleClick={() => setVotes()} />
       <Button
         text="Random anecdotes"
         handleClick={() =>
