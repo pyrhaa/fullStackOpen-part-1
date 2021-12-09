@@ -31,13 +31,17 @@ const App = () => {
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState([...anecdotes].fill(0));
 
-  console.log(votes);
+  const handleVote = () => {
+    let up = [...votes];
+    up[selected] += 1;
+    setVotes(up);
+  };
 
   return (
     <div>
       <Title text="Anecdote of the day *~(^o^)~*" />
       <Anecdote anecdotes={anecdotes} selected={selected} votes={votes} />
-      <Button text="vote !" handleClick={() => (votes[selected] += 1)} />
+      <Button text="vote !" handleClick={handleVote} />
       <Button
         text="Random anecdotes"
         handleClick={() =>
