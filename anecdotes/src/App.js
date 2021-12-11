@@ -13,6 +13,16 @@ const Anecdote = (props) => {
   );
 };
 
+const Popular = (props) => {
+  const maxVote = Math.max(...props.votes);
+  return (
+    <>
+      <p>hey</p>
+      <p>has {maxVote} votes</p>
+    </>
+  );
+};
+
 const Button = (props) => {
   return <button onClick={props.handleClick}>{props.text}</button>;
 };
@@ -37,6 +47,8 @@ const App = () => {
     setVotes(up);
   };
 
+  console.log(votes);
+
   return (
     <div>
       <Title text="Anecdote of the day *~(^o^)~*" />
@@ -49,6 +61,7 @@ const App = () => {
         }
       />
       <Title text="Most popular Anecdote from votes" />
+      <Popular anecdotes={anecdotes} selected={selected} votes={votes} />
     </div>
   );
 };
