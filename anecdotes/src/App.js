@@ -15,9 +15,10 @@ const Anecdote = (props) => {
 
 const Popular = (props) => {
   const maxVote = Math.max(...props.votes);
+  const maxIndex = [...props.votes].indexOf(maxVote);
   return (
     <>
-      <p>hey</p>
+      <p>{props.anecdotes[maxIndex]}</p>
       <p>has {maxVote} votes</p>
     </>
   );
