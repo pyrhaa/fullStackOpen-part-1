@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
 
-const Title = (props) => {
-  return <h2>{props.text}</h2>;
+const Title = ({ text }) => {
+  return <h2>{text}</h2>;
 };
 
-const Anecdote = (props) => {
+const Anecdote = ({ anecdotes, votes, selected }) => {
   return (
     <>
-      <p>{props.anecdotes[props.selected]}</p>
-      <p>has {props.votes[props.selected]} votes</p>
+      <p>{anecdotes[selected]}</p>
+      <p>has {votes[selected]} votes</p>
     </>
   );
 };
 
-const Popular = (props) => {
-  const maxVote = Math.max(...props.votes);
-  const maxIndex = [...props.votes].indexOf(maxVote);
+//maxVote : find the max number voted in votes array
+//maxIndex : find the first index at which a given element can be found in votes array
+const Popular = ({ votes, anecdotes }) => {
+  const maxVote = Math.max(...votes);
+  const maxIndex = [...votes].indexOf(maxVote);
   return (
     <>
-      <p>{props.anecdotes[maxIndex]}</p>
+      <p>{anecdotes[maxIndex]}</p>
       <p>has {maxVote} votes</p>
     </>
   );
 };
 
-const Button = (props) => {
-  return <button onClick={props.handleClick}>{props.text}</button>;
+const Button = ({ handleClick, text }) => {
+  return <button onClick={handleClick}>{text}</button>;
 };
 
 const App = () => {
@@ -38,7 +40,6 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ];
-
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState([...anecdotes].fill(0));
 
@@ -47,8 +48,6 @@ const App = () => {
     up[selected] += 1;
     setVotes(up);
   };
-
-  console.log(votes);
 
   return (
     <div>
